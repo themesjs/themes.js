@@ -13,9 +13,7 @@ ThemeButtonNameDark = "Dunkel";
 // Funktion, die die Farbänderungen auführt
 function changeToTheme(backgroundColor,navColor,textColor,themeName){
     document.body.style.backgroundColor = backgroundColor;
-    document.getElementById("sideNav").style.backgroundColor = navColor;
     document.body.style.color = textColor;
-    document.getElementById("themeToggleButton").innerHTML = themeName;
 }
 
 
