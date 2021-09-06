@@ -2,8 +2,6 @@
 //https://github.com/CuzImBisonratte/themes.js
 
 // Hier kannst du die Farbcodes umstellen
-ThemeColorNavLight = "#cccccc";
-ThemeColorNavDark = "#35393f";
 ThemeColorBackLight = "#f1f1f1";
 ThemeColorBackDark = "#282C36";
 ThemeColorTextLight = "#282C36";
@@ -14,7 +12,7 @@ ThemeButtonNameDark = "Dunkel";
 
 
 // Funktion, die die Farbänderungen auführt
-function changeToTheme(backgroundColor,navColor,textColor,themeName){
+function changeToTheme(backgroundColor,textColor,themeName){
     document.body.style.backgroundColor = backgroundColor;
     document.body.style.color = textColor;
     document.getElementById("themeToggleButton").innerHTML = themeName;
@@ -32,12 +30,12 @@ function initializeTheme(){
     if(theme=="light"){
 
         // Theme ändern
-        changeToTheme(ThemeColorBackLight,ThemeColorNavLight,ThemeColorTextLight,ThemeButtonNameLight);
+        changeToTheme(ThemeColorBackLight,ThemeColorTextLight,ThemeButtonNameLight);
     }
     else{
 
         // Theme ändern
-        changeToTheme(ThemeColorBackDark,ThemeColorNavDark,ThemeColorTextDark,ThemeButtonNameDark);
+        changeToTheme(ThemeColorBackDark,ThemeColorTextDark,ThemeButtonNameDark);
     }
 }
 
@@ -56,7 +54,7 @@ function toggleTheme(){
     if(theme=="dark"){
 
         // Theme ändern
-        changeToTheme(ThemeColorBackLight,ThemeColorNavLight,ThemeColorTextLight,ThemeButtonNameLight);
+        changeToTheme(ThemeColorBackLight,ThemeColorTextLight,ThemeButtonNameLight);
 
         // Theme-Speicher auf "Hell" setzen
         localStorage.setItem("theme","light");
@@ -64,7 +62,7 @@ function toggleTheme(){
     else{
 
         // Theme ändern
-        changeToTheme(ThemeColorBackDark,ThemeColorNavDark,ThemeColorTextDark,ThemeButtonNameDark);
+        changeToTheme(ThemeColorBackDark,ThemeColorTextDark,ThemeButtonNameDark);
 
         // Theme-Speicher auf "Dunkel" setzen
         localStorage.setItem("theme", "dark");
