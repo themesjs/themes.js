@@ -1,3 +1,6 @@
+//themes.js von CuzImBisonratte
+//https://github.com/CuzImBisonratte/themes.js
+
 // Hier kannst du die Farbcodes umstellen
 ThemeColorNavLight = "#cccccc";
 ThemeColorNavDark = "#35393f";
@@ -14,6 +17,7 @@ ThemeButtonNameDark = "Dunkel";
 function changeToTheme(backgroundColor,navColor,textColor,themeName){
     document.body.style.backgroundColor = backgroundColor;
     document.body.style.color = textColor;
+    document.getElementById("themeToggleButton").innerHTML = themeName;
 }
 
 
