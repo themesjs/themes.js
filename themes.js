@@ -1,4 +1,3 @@
-
 ThemeColorNavLight = "#cccccc";
 ThemeColorNavDark = "#35393f";
 ThemeColorBackLight = "#f1f1f1";
