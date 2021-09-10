@@ -9,7 +9,8 @@ ThemeColorTextDark = "#818181";
 ThemeButtonNameLight = "Hell";
 ThemeButtonNameDark = "Dunkel";
 
-
+// Initialize the Themes-variable
+var theme;
 
 // Funktion, die die Farbänderungen auführt
 function changeToTheme(backgroundColor,textColor,themeName){
@@ -24,8 +25,16 @@ function changeToTheme(backgroundColor,textColor,themeName){
 function initializeTheme(){
 
     // Aktuelles Theme abrufen
-    theme = localStorage.getItem("theme");
-
+    try{
+        theme = localStorage.getItem("theme");
+    }
+    catch(e) {
+        if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+            localStorage.clear();
+            theme = localStorage.getItem("theme");
+        }
+    }
+    
     //Theme auf gespeichertes Theme setzen
     if(theme=="light"){
 
@@ -48,7 +57,15 @@ initializeTheme();
 function toggleTheme(){
 
     // Aktuelles Theme abrufen
-    theme = localStorage.getItem("theme"); 
+    try{
+        theme = localStorage.getItem("theme");
+    }
+    catch(e) {
+        if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+            localStorage.clear();
+            theme = localStorage.getItem("theme");
+        }
+    }
 
     // Theme basierend auf Aktuellem theme ändern
     if(theme=="dark"){
