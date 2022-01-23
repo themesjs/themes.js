@@ -19,7 +19,11 @@ Eine einfache Möglichkeit Themes auf einer Website einzubinden
 </div>
 ```
 
-Fertig
+## Kompatibilität
+JS | CSS
+---|---
+1.0.0 | 1.0.0
+2.0.0 | 2.0.0
 
 ## Optional
 ### Übergang
