@@ -22,29 +22,26 @@ function changeToTheme(backgroundColor,textColor,themeName){
 
 
 // Die funktion, die beim aufrufen der Website automatisch gestartet wird
-function initializeTheme(){
+function initializeTheme() {
 
     // Aktuelles Theme abrufen
-    try{
+    try {
         theme = localStorage.getItem("theme");
-    }
-    catch(e) {
-        if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+    } catch (e) {
+        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
             localStorage.clear();
             theme = localStorage.getItem("theme");
         }
     }
-    
     //Theme auf gespeichertes Theme setzen
-    if(theme=="light"){
+    if (theme == "light") {
 
         // Theme ändern
-        changeToTheme(ThemeColorBackLight,ThemeColorTextLight,ThemeButtonNameLight);
-    }
-    else{
+        toLight();
+    } else {
 
         // Theme ändern
-        changeToTheme(ThemeColorBackDark,ThemeColorTextDark,ThemeButtonNameDark);
+        toDark();
     }
 }
 
@@ -54,34 +51,32 @@ initializeTheme();
 
 
 // Funktion, die bei Knopfdruck ausgeführt wird
-function toggleTheme(){
+function toggleTheme() {
 
     // Aktuelles Theme abrufen
-    try{
+    try {
         theme = localStorage.getItem("theme");
-    }
-    catch(e) {
-        if(e.name == "NS_ERROR_FILE_CORRUPTED") {
+    } catch (e) {
+        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
             localStorage.clear();
             theme = localStorage.getItem("theme");
         }
     }
 
     // Theme basierend auf Aktuellem theme ändern
-    if(theme=="dark"){
+    if (theme == "dark") {
 
         // Theme ändern
-        changeToTheme(ThemeColorBackLight,ThemeColorTextLight,ThemeButtonNameLight);
+        toLight();
 
         // Theme-Speicher auf "Hell" setzen
-        localStorage.setItem("theme","light");
-    }
-    else{
+        localStorage.setItem("theme", "light");
+    } else {
 
         // Theme ändern
-        changeToTheme(ThemeColorBackDark,ThemeColorTextDark,ThemeButtonNameDark);
+        toDark();
 
         // Theme-Speicher auf "Dunkel" setzen
         localStorage.setItem("theme", "dark");
-    }  
+    }
 }
