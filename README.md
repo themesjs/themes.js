@@ -29,8 +29,8 @@ JS | CSS
 Als Designbeispiel für den Light/Dark-theme-Knopf habe ich folgenden css-schnipsel:
 ```
 #themeToggleButton{
-    color: var(--font-color);
-    background: var(--color-primary);
+    color: var(--nav-text-color);
+    background: var(--nav-background-color);
     padding: 10px 20px;
     border-radius: 5px;
 }
