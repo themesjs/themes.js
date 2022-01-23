@@ -7,35 +7,30 @@ Eine einfache Möglichkeit Themes auf einer Website einzubinden
 - Speichern über Seitenaufrufe hinweg
 
 ## Einbinden
-1. Lade dir die "themes.js"-Datei herunter
-2. Füge an das ende des "body-bereichs" deiner website folgenden code ein
-```
-<script src="./themes.js"></script>
-```
-3. Füge am anfang des "body-bereichs" deiner Website folgenden Code ein:
+1. Herunterladen :D
+2. Am ende des body-Tags einfügen
+
+## Knopf quellcode
 ```
 <div id="themeButton">
     <button id="themeToggleButton" onclick="toggleTheme()">Darkmode/Lightmode</button>
 </div>
 ```
 
-Fertig
+## Kompatibilität
+JS | CSS
+---|---
+1.0.0 | 1.0.0
+2.0.0 | 2.0.0
 
-## Optional
-### Übergang
-Wenn du einen übergang willst, füge folgenden CSS-snippet in deiner CSS-Datei ein:
-```
-body{
-    transition: 0.5s;
-}
-```
+
 
 ## Beispiel-Design  
 Als Designbeispiel für den Light/Dark-theme-Knopf habe ich folgenden css-schnipsel:
 ```
 #themeToggleButton{
-    color: var(--font-color);
-    background: var(--color-primary);
+    color: var(--nav-text-color);
+    background: var(--nav-background-color);
     padding: 10px 20px;
     border-radius: 5px;
 }
