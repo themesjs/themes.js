@@ -1,24 +1,71 @@
 // themes.js von CuzImBisonratte
 // https://github.com/themes-js/themes.js
 
-// Hier kannst du die Farbcodes umstellen
-ThemeColorBackLight = "#f1f1f1";
-ThemeColorBackDark = "#282C36";
-ThemeColorTextLight = "#282C36";
-ThemeColorTextDark = "#818181";
-ThemeButtonNameLight = "Hell";
-ThemeButtonNameDark = "Dunkel";
+// 
+// Farbcodes
+// 
 
-// Initialize the Themes-variable
-var theme;
+// Navigation - Hintergrund
+ThemeDarkNavBackground = "#111111";
+ThemeLightNavBackground = "#ffffff";
 
-// Funktion, die die Farbänderungen auführt
-function changeToTheme(backgroundColor,textColor,themeName){
-    document.body.style.backgroundColor = backgroundColor;
-    document.body.style.color = textColor;
-    document.getElementById("themeToggleButton").innerHTML = themeName;
+// Navigation - Text
+ThemeDarkNavText = "#ffffff";
+ThemeLightNavText = "#000000";
+
+// Seite - Hintergrund
+ThemeDarkBackground = "#000000";
+ThemeLightBackground = "#eff1d0";
+
+// Seite - Normaler Text
+ThemeDarkText = "#ffffff";
+ThemeLightText = "#000000";
+
+// Seite - Überschriften
+ThemeDarkTitle = "#6aaa4b";
+ThemeLightTitle = "#355525";
+
+// Besonderheiten
+ThemeLightExtra = "#22aacc";
+ThemeDarkExtra = "#ffccaa";
+
+
+// Theme - Name
+ThemeDarkName = "Dunkel";
+ThemeLightName = "Hell";
+
+
+// 
+// Get the document element
+// 
+doc_element = document.documentElement;
+
+// 
+// The functions
+// 
+
+// The function to change to the light Theme
+function toLight() {
+    doc_element.style.setProperty('--body-background-color', ThemeLightBackground);
+    doc_element.style.setProperty('--nav-background-color', ThemeLightNavBackground);
+    doc_element.style.setProperty('--text-color', ThemeLightText);
+    doc_element.style.setProperty('--title-color', ThemeLightTitle);
+    doc_element.style.setProperty('--nav-text-color', ThemeLightNavText);
+    doc_element.style.setProperty('--extra-color', ThemeLightExtra);
+    document.getElementById("themeToggleButton").innerHTML = ThemeLightName;
 }
 
+
+// The function to change to the dark theme
+function toDark() {
+    doc_element.style.setProperty('--body-background-color', ThemeDarkBackground);
+    doc_element.style.setProperty('--nav-background-color', ThemeDarkNavBackground);
+    doc_element.style.setProperty('--text-color', ThemeDarkText);
+    doc_element.style.setProperty('--title-color', ThemeDarkTitle);
+    doc_element.style.setProperty('--nav-text-color', ThemeDarkNavText);
+    doc_element.style.setProperty('--extra-color', ThemeDarkExtra);
+    document.getElementById("themeToggleButton").innerHTML = ThemeDarkName;
+}
 
 
 // Die funktion, die beim aufrufen der Website automatisch gestartet wird
