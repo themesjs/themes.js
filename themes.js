@@ -1,5 +1,5 @@
-//themes.js von CuzImBisonratte
-//https://github.com/CuzImBisonratte/themes.js
+// themes.js von CuzImBisonratte
+// https://github.com/themes-js/themes.js
 
 // Hier kannst du die Farbcodes umstellen
 ThemeColorBackLight = "#f1f1f1";
