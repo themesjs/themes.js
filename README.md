@@ -25,6 +25,10 @@ JS | CSS
 
 
 
+## Demo's
+If you want to test out a demo, you can find several examples [here](https://themes-js.github.io/examples/)
+
+
 ## Beispiel-Design  
 Als Designbeispiel für den Light/Dark-theme-Knopf habe ich folgenden css-schnipsel:
 ```
