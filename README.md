@@ -25,14 +25,7 @@ JS | CSS
 1.0.0 | 1.0.0
 2.0.0 | 2.0.0
 
-## Optional
-### Übergang
-Wenn du einen übergang willst, füge folgenden CSS-snippet in deiner CSS-Datei ein:
-```
-body{
-    transition: 0.5s;
-}
-```
+
 
 ## Beispiel-Design  
 Als Designbeispiel für den Light/Dark-theme-Knopf habe ich folgenden css-schnipsel:
