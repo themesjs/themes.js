@@ -5,6 +5,7 @@ Eine einfache Möglichkeit Themes auf einer Website einzubinden
 ## Features  
 - EIN Knopfdruck -> Große veränderung
 - Speichern über Seitenaufrufe hinweg
+- Beim ersten Aufruf wird das Theme automatisch nach Browserpräferenz gesetzt
 
 ## Einbinden
 1. Herunterladen :D
