@@ -67,6 +67,22 @@ function toDark() {
     document.getElementById("themeToggleButton").innerHTML = ThemeDarkName;
 }
 
+// Die funktion, die beim ersten mal laden der Website ausgeführt wird
+function initializeTheme() {
+    // Überprüfen, ob Theme-Speicher vorhanden ist
+    if (!localStorage.getItem("theme")) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toDark();
+            localStorage.setItem("theme", "dark");
+        } else {
+            toLight();
+            localStorage.setItem("theme", "light");
+        }
+    }
+}
+
+// Funktion einmal zum Start ausführen
+initializeTheme();
 
 // Die funktion, die beim aufrufen der Website automatisch gestartet wird
 function startTheme() {
