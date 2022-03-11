@@ -69,7 +69,7 @@ function toDark() {
 
 
 // Die funktion, die beim aufrufen der Website automatisch gestartet wird
-function initializeTheme() {
+function startTheme() {
 
     // Aktuelles Theme abrufen
     try {
@@ -93,7 +93,7 @@ function initializeTheme() {
 }
 
 // Funktion einmal zum Start ausführen
-initializeTheme();
+startTheme();
 
 
 
