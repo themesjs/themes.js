@@ -5,29 +5,21 @@
 // Farbcodes
 // 
 
-// Navigation - Hintergrund
+// Dark theme variables
 ThemeDarkNavBackground = "#111111";
-ThemeLightNavBackground = "#ffffff";
-
-// Navigation - Text
 ThemeDarkNavText = "#ffffff";
-ThemeLightNavText = "#000000";
-
-// Seite - Hintergrund
 ThemeDarkBackground = "#000000";
-ThemeLightBackground = "#eff1d0";
-
-// Seite - Normaler Text
 ThemeDarkText = "#ffffff";
-ThemeLightText = "#000000";
-
-// Seite - Überschriften
 ThemeDarkTitle = "#6aaa4b";
-ThemeLightTitle = "#355525";
-
-// Besonderheiten
-ThemeLightExtra = "#22aacc";
 ThemeDarkExtra = "#ffccaa";
+
+// Light Theme Variablen
+ThemeLightNavBackground = "#ffffff";
+ThemeLightNavText = "#000000";
+ThemeLightBackground = "#eff1d0";
+ThemeLightText = "#000000";
+ThemeLightTitle = "#355525";
+ThemeLightExtra = "#22aacc";
 
 
 // Theme - Name
