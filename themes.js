@@ -6,6 +6,7 @@
 // 
 
 // Dark theme variables
+ThemeDarkName = "Dunkel";
 ThemeDarkNavBackground = "#111111";
 ThemeDarkNavText = "#ffffff";
 ThemeDarkBackground = "#000000";
@@ -14,18 +15,13 @@ ThemeDarkTitle = "#6aaa4b";
 ThemeDarkExtra = "#ffccaa";
 
 // Light Theme Variablen
+ThemeLightName = "Hell";
 ThemeLightNavBackground = "#ffffff";
 ThemeLightNavText = "#000000";
 ThemeLightBackground = "#eff1d0";
 ThemeLightText = "#000000";
 ThemeLightTitle = "#355525";
 ThemeLightExtra = "#22aacc";
-
-
-// Theme - Name
-ThemeDarkName = "Dunkel";
-ThemeLightName = "Hell";
-
 
 // 
 // Get the document element
