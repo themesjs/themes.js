@@ -1,133 +1,67 @@
-// themes.js von CuzImBisonratte
-// https://github.com/themes-js/themes.js
+function themesjs(config) {
 
-// 
-// Farbcodes
-// 
+    // Check if new
+    if (!(this instanceof themesjs)) {
+        throw new Error('Themes.js must be called with the new keyword');
+    }
 
-// Dark theme variables
-ThemeDarkName = "Dunkel";
-ThemeDarkNavBackground = "#111111";
-ThemeDarkNavText = "#ffffff";
-ThemeDarkBackground = "#000000";
-ThemeDarkText = "#ffffff";
-ThemeDarkTitle = "#6aaa4b";
-ThemeDarkExtra = "#ffccaa";
+    // Get themes
+    if (config.themes == null) throw new Error("No themes defined!");
+    else this.themes = config.themes;
+    let checkThemeValidity = (theme) => {
+        if (theme.name == null) throw new Error("Theme name not defined!");
+    }
+    this.themes.forEach((theme) => checkThemeValidity(theme));
 
-// Light Theme Variablen
-ThemeLightName = "Hell";
-ThemeLightNavBackground = "#ffffff";
-ThemeLightNavText = "#000000";
-ThemeLightBackground = "#eff1d0";
-ThemeLightText = "#000000";
-ThemeLightTitle = "#355525";
-ThemeLightExtra = "#22aacc";
+    // Get standarts
+    if (config.standarts != null) this.standarts = config.standarts;
+    else this.standarts = { no_pref: this.themes[0].name };
 
-// 
-// Get the document element
-// 
-doc_element = document.documentElement;
-
-// 
-// The functions
-// 
-
-// The function to change to the light Theme
-function toLight() {
-    doc_element.style.setProperty('--body-background-color', ThemeLightBackground);
-    doc_element.style.setProperty('--nav-background-color', ThemeLightNavBackground);
-    doc_element.style.setProperty('--text-color', ThemeLightText);
-    doc_element.style.setProperty('--title-color', ThemeLightTitle);
-    doc_element.style.setProperty('--nav-text-color', ThemeLightNavText);
-    doc_element.style.setProperty('--extra-color', ThemeLightExtra);
-    document.getElementById("themeToggleButton").innerHTML = ThemeLightName;
-}
-
-
-// The function to change to the dark theme
-function toDark() {
-    doc_element.style.setProperty('--body-background-color', ThemeDarkBackground);
-    doc_element.style.setProperty('--nav-background-color', ThemeDarkNavBackground);
-    doc_element.style.setProperty('--text-color', ThemeDarkText);
-    doc_element.style.setProperty('--title-color', ThemeDarkTitle);
-    doc_element.style.setProperty('--nav-text-color', ThemeDarkNavText);
-    doc_element.style.setProperty('--extra-color', ThemeDarkExtra);
-    document.getElementById("themeToggleButton").innerHTML = ThemeDarkName;
-}
-
-// Die funktion, die beim ersten mal laden der Website ausgeführt wird
-function initializeTheme() {
-    // Überprüfen, ob Theme-Speicher vorhanden ist
-    if (!localStorage.getItem("theme")) {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            toDark();
-            localStorage.setItem("theme", "dark");
+    let setTheme = (set_to_theme) => {
+        config.themes.forEach((theme) => {
+            if (theme.name == set_to_theme) {
+                Object.keys(theme).forEach((key) => {
+                    if (key != 'name' && key != 'displayName' && key != 'icon') {
+                        document.documentElement.style.setProperty('--' + key + '-color', theme[key]);
+                    }
+                });
+                window.setTimeout(() => {
+                    document.getElementById("themeswitch").children[0].innerHTML = theme.icon;
+                }, 250);
+                if (theme.name != "dark") document.querySelectorAll(".platformIcon").forEach((icon) => icon.style.filter = "invert(1) brightness(100)");
+                else document.querySelectorAll(".platformIcon").forEach((icon) => icon.style.filter = "brightness(0)");
+            }
+        });
+        let rotation = parseInt((document.getElementById("themeswitch").children[0].style.transform || "rotate(0deg);").replace("rotate(", "").replace("deg);", "").replace("deg)", ""));
+        rotation = rotation + 360;
+        document.getElementById("themeswitch").children[0].style.transform = "rotate(" + rotation + "deg)";
+        localStorage.setItem("theme", set_to_theme);
+    }
+    let initTheme = () => {
+        let theme = localStorage.getItem("theme");
+        if (theme == null) {
+            // Check if system theme is dark
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                theme = config.standart_dark;
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                theme = config.standart_light;
+            } else {
+                theme = config.standart;
+            }
+        }
+        setTheme(theme);
+    }
+    let cycleTheme = () => {
+        let theme = localStorage.getItem("theme");
+        if (theme == null) {
+            theme = config.standart;
+        }
+        let index = config.themes.findIndex((obj) => obj.name == theme);
+        if (index == config.themes.length - 1) {
+            index = 0;
         } else {
-            toLight();
-            localStorage.setItem("theme", "light");
+            index++;
         }
-    }
-}
-
-// Funktion einmal zum Start ausführen
-initializeTheme();
-
-// Die funktion, die beim aufrufen der Website automatisch gestartet wird
-function startTheme() {
-
-    // Aktuelles Theme abrufen
-    try {
-        theme = localStorage.getItem("theme");
-    } catch (e) {
-        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
-            localStorage.clear();
-            theme = localStorage.getItem("theme");
-        }
-    }
-    //Theme auf gespeichertes Theme setzen
-    if (theme == "light") {
-
-        // Theme ändern
-        toLight();
-    } else {
-
-        // Theme ändern
-        toDark();
-    }
-}
-
-// Funktion einmal zum Start ausführen
-startTheme();
-
-
-
-// Funktion, die bei Knopfdruck ausgeführt wird
-function toggleTheme() {
-
-    // Aktuelles Theme abrufen
-    try {
-        theme = localStorage.getItem("theme");
-    } catch (e) {
-        if (e.name == "NS_ERROR_FILE_CORRUPTED") {
-            localStorage.clear();
-            theme = localStorage.getItem("theme");
-        }
-    }
-
-    // Theme basierend auf Aktuellem theme ändern
-    if (theme == "dark") {
-
-        // Theme ändern
-        toLight();
-
-        // Theme-Speicher auf "Hell" setzen
-        localStorage.setItem("theme", "light");
-    } else {
-
-        // Theme ändern
-        toDark();
-
-        // Theme-Speicher auf "Dunkel" setzen
-        localStorage.setItem("theme", "dark");
+        setTheme(config.themes[index].name);
     }
 }
